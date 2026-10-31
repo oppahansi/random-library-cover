@@ -6,6 +6,12 @@ and the project uses [semantic versioning](https://semver.org).
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-10-31
+
+### Fixed
+
+- Works next to other plugins that use the File Transformation plugin. Every plugin used the same transformation id, so File Transformation kept only the first one and the menu item could go missing.
+
 ## [1.0.0] - 2026-10-31
 
 ### Added
@@ -18,5 +24,6 @@ and the project uses [semantic versioning](https://semver.org).
 - Script injection through the File Transformation plugin when it's installed, otherwise into jellyfin-web's `index.html` (locked while it's changed, left alone if it looks damaged).
 - Builds for Jellyfin 10.9, 10.10, 10.11, 12.0, 12.1, 12.2, 12.3 and 12.4.
 
-[Unreleased]: https://github.com/oppahansi/random-library-cover/compare/v1.0.0-jellyfin-12.4...HEAD
+[Unreleased]: https://github.com/oppahansi/random-library-cover/compare/v1.0.1-jellyfin-12.4...HEAD
+[1.0.1]: https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.1-jellyfin-12.4
 [1.0.0]: https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.0-jellyfin-12.4
