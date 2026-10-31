@@ -1,0 +1,77 @@
+[
+  {
+    "guid": "b94cd594-5ec9-4552-b1b4-455d524fe82e",
+    "name": "Random Library Cover",
+    "description": "Adds a \"Random cover\" item to the menu of the library cards in My Media on the home screen. It picks a new cover for the library from the backdrops or thumbs of its own items. Covers can also be shuffled automatically on a schedule.",
+    "overview": "Give your libraries a random new cover from their own artwork",
+    "owner": "oppahansi",
+    "category": "General",
+    "imageUrl": "https://raw.githubusercontent.com/oppahansi/random-library-cover/main/docs/random-cover-menu.png",
+    "versions": [
+      {
+        "version": "1.0.0.1204",
+        "changelog": "https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.0-jellyfin-12.4",
+        "targetAbi": "12.4.0.0",
+        "sourceUrl": "https://github.com/oppahansi/random-library-cover/releases/download/v1.0.0-jellyfin-12.4/randomlibrarycover_1.0.0_jellyfin-12.4.zip",
+        "checksum": "ee03e00dc35e61628be5865383a37f0c",
+        "timestamp": "2026-10-31T11:56:18Z"
+      },
+      {
+        "version": "1.0.0.1203",
+        "changelog": "https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.0-jellyfin-12.3",
+        "targetAbi": "12.3.0.0",
+        "sourceUrl": "https://github.com/oppahansi/random-library-cover/releases/download/v1.0.0-jellyfin-12.3/randomlibrarycover_1.0.0_jellyfin-12.3.zip",
+        "checksum": "b8452eaabf1a1e86c6ed912c3d71ce0b",
+        "timestamp": "2026-10-31T11:56:15Z"
+      },
+      {
+        "version": "1.0.0.1202",
+        "changelog": "https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.0-jellyfin-12.2",
+        "targetAbi": "12.2.0.0",
+        "sourceUrl": "https://github.com/oppahansi/random-library-cover/releases/download/v1.0.0-jellyfin-12.2/randomlibrarycover_1.0.0_jellyfin-12.2.zip",
+        "checksum": "fa1998dd84d202eb8be2de6f4b1f4a35",
+        "timestamp": "2026-10-31T11:56:13Z"
+      },
+      {
+        "version": "1.0.0.1201",
+        "changelog": "https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.0-jellyfin-12.1",
+        "targetAbi": "12.1.0.0",
+        "sourceUrl": "https://github.com/oppahansi/random-library-cover/releases/download/v1.0.0-jellyfin-12.1/randomlibrarycover_1.0.0_jellyfin-12.1.zip",
+        "checksum": "8053ebcf0c2f7b94221652f7fe3c29b2",
+        "timestamp": "2026-10-31T11:56:10Z"
+      },
+      {
+        "version": "1.0.0.1200",
+        "changelog": "https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.0-jellyfin-12.0",
+        "targetAbi": "12.0.0.0",
+        "sourceUrl": "https://github.com/oppahansi/random-library-cover/releases/download/v1.0.0-jellyfin-12.0/randomlibrarycover_1.0.0_jellyfin-12.0.zip",
+        "checksum": "56e1136587dee332f63d76ceeb5f70f8",
+        "timestamp": "2026-10-31T11:56:08Z"
+      },
+      {
+        "version": "1.0.0.1011",
+        "changelog": "https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.0-jellyfin-10.11",
+        "targetAbi": "10.11.0.0",
+        "sourceUrl": "https://github.com/oppahansi/random-library-cover/releases/download/v1.0.0-jellyfin-10.11/randomlibrarycover_1.0.0_jellyfin-10.11.zip",
+        "checksum": "0bc4890617100c78b5129ad7c695aba0",
+        "timestamp": "2026-10-31T11:56:05Z"
+      },
+      {
+        "version": "1.0.0.1010",
+        "changelog": "https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.0-jellyfin-10.10",
+        "targetAbi": "10.10.0.0",
+        "sourceUrl": "https://github.com/oppahansi/random-library-cover/releases/download/v1.0.0-jellyfin-10.10/randomlibrarycover_1.0.0_jellyfin-10.10.zip",
+        "checksum": "955a2524902871ad6c1d753bf878dbb3",
+        "timestamp": "2026-10-31T11:55:59Z"
+      },
+      {
+        "version": "1.0.0.1009",
+        "changelog": "https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.0-jellyfin-10.9",
+        "targetAbi": "10.9.0.0",
+        "sourceUrl": "https://github.com/oppahansi/random-library-cover/releases/download/v1.0.0-jellyfin-10.9/randomlibrarycover_1.0.0_jellyfin-10.9.zip",
+        "checksum": "3a68ec59b42793b8d419c778d2f10af2",
+        "timestamp": "2026-10-31T11:55:56Z"
+      }
+    ]
+  }
+]
