@@ -2,6 +2,7 @@
 
 [![Build](https://github.com/oppahansi/random-library-cover/actions/workflows/build.yml/badge.svg)](https://github.com/oppahansi/random-library-cover/actions/workflows/build.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Discord](https://img.shields.io/static/v1?logo=discord&label=discord&message=Join&color=blue)](https://discord.gg/ncKmDEArqg)
 
 A Jellyfin plugin that adds a **Random cover** item to the ⋮ menu of the library cards in *My Media* on the home screen. One click gives the library a new cover, picked at random from the backdrops or thumbs of the movies, shows and collections in it. Covers can also be shuffled automatically on a schedule.
 
