@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Random Library Cover</title>
+</head>
+<body>
+<div id="randomLibraryCoverConfigPage" data-role="page" class="page type-interior pluginConfigurationPage">
+    <div data-role="content">
+        <div class="content-primary">
+            <form id="randomLibraryCoverForm">
+                <div class="verticalSection">
+                    <h2 class="sectionTitle">Random Library Cover</h2>
+                    <p>Hover over a library in <b>My Media</b> on the home screen, open the ⋮ menu and choose <b>Random cover</b> to give it a new cover from its own artwork. Covers are shared by all users, so only administrators see the menu item.</p>
+                </div>
+
+                <div class="selectContainer">
+                    <label class="selectLabel" for="coverSource">Pick covers from</label>
+                    <select is="emby-select" id="coverSource" class="emby-select-withcolor emby-select">
+                        <option value="BackdropsAndThumbs">Backdrops and thumbs</option>
+                        <option value="Backdrops">Backdrops only</option>
+                        <option value="Thumbs">Thumbs only</option>
+                    </select>
+                    <div class="fieldDescription">Both are landscape like the library cards. Backdrops are plain artwork, thumbs usually have the title on them.</div>
+                </div>
+
+                <div class="checkboxContainer checkboxContainer-withDescription">
+                    <label>
+                        <input type="checkbox" id="drawLibraryName" style="accent-color: var(--jf-palette-primary-main, #00a4dc);" />
+                        <span>Draw the library name on the cover</span>
+                    </label>
+                    <div class="fieldDescription">Darkens the image and puts the library name on it in large white letters, like Jellyfin's own generated covers.</div>
+                </div>
+
+                <div class="verticalSection">
+                    <h3 class="sectionTitle">Automatic shuffle</h3>
+                </div>
+
+                <div class="selectContainer">
+                    <label class="selectLabel" for="autoShuffleInterval">Shuffle covers automatically</label>
+                    <select is="emby-select" id="autoShuffleInterval" class="emby-select-withcolor emby-select">
+                        <option value="Off">Off</option>
+                        <option value="Hourly">Every hour</option>
+                        <option value="Every3Hours">Every 3 hours</option>
+                        <option value="Every6Hours">Every 6 hours</option>
+                        <option value="Every12Hours">Every 12 hours</option>
+                        <option value="Daily">Once a day</option>
+                        <option value="Every3Days">Every 3 days</option>
+                        <option value="Weekly">Once a week</option>
+                    </select>
+                    <div class="fieldDescription" id="lastAutoShuffle"></div>
+                </div>
+
+                <div class="verticalSection">
+                    <label class="inputLabel">Libraries to shuffle automatically</label>
+                    <div id="libraryList" class="checkboxList paperList" style="padding:.5em 1em;"></div>
+                    <div class="fieldDescription">Unchecked libraries keep their cover until you change it from the menu. New libraries are included.</div>
+                </div>
+
+                <div style="margin:1.5em 0;">
+                    <button is="emby-button" type="button" id="shuffleNow" class="raised button-alt block"><span>Shuffle checked libraries now</span></button>
+                </div>
+
+                <div>
+                    <button is="emby-button" type="submit" class="raised button-submit block"><span>Save</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        (function () {
+            var pluginId = 'b94cd594-5ec9-4552-b1b4-455d524fe82e';
+            var page = document.querySelector('#randomLibraryCoverConfigPage');
+
+            function escapeHtml(text) {
+                var div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            function renderLibraries(libraries, excluded) {
+                var list = page.querySelector('#libraryList');
+                list.innerHTML = libraries.map(function (library) {
+                    var checked = excluded.indexOf(library.ItemId) === -1 ? ' checked' : '';
+                    return '<label style="display:flex;align-items:center;gap:.6em;margin:.4em 0;">'
+                        + '<input type="checkbox" class="rlcLibrary" data-id="' + escapeHtml(library.ItemId) + '"' + checked
+                        + ' style="accent-color: var(--jf-palette-primary-main, #00a4dc);" />'
+                        + '<span>' + escapeHtml(library.Name) + '</span></label>';
+                }).join('') || '<div>No libraries found.</div>';
+            }
+
+            function renderLastShuffle(config) {
+                var text = '';
+                if (config.LastAutoShuffle && config.LastAutoShuffle.indexOf('0001-') !== 0) {
+                    text = 'Last automatic shuffle: ' + new Date(config.LastAutoShuffle).toLocaleString() + '. ';
+                }
+                page.querySelector('#lastAutoShuffle').textContent = text + 'Checked once an hour, so intervals are accurate to about an hour.';
+            }
+
+            function excludedIds() {
+                return Array.prototype.filter.call(page.querySelectorAll('.rlcLibrary'), function (box) { return !box.checked; })
+                    .map(function (box) { return box.getAttribute('data-id'); });
+            }
+
+            function save() {
+                return ApiClient.getPluginConfiguration(pluginId).then(function (config) {
+                    config.Source = page.querySelector('#coverSource').value;
+                    config.DrawLibraryName = page.querySelector('#drawLibraryName').checked;
+                    config.AutoShuffleInterval = page.querySelector('#autoShuffleInterval').value;
+                    config.ExcludedLibraryIds = excludedIds();
+                    return ApiClient.updatePluginConfiguration(pluginId, config);
+                });
+            }
+
+            page.addEventListener('pageshow', function () {
+                Dashboard.showLoadingMsg();
+                Promise.all([
+                    ApiClient.getPluginConfiguration(pluginId),
+                    ApiClient.getJSON(ApiClient.getUrl('Library/VirtualFolders'))
+                ]).then(function (results) {
+                    var config = results[0];
+                    page.querySelector('#coverSource').value = config.Source || 'BackdropsAndThumbs';
+                    page.querySelector('#drawLibraryName').checked = config.DrawLibraryName !== false;
+                    page.querySelector('#autoShuffleInterval').value = config.AutoShuffleInterval || 'Off';
+                    renderLibraries(results[1] || [], config.ExcludedLibraryIds || []);
+                    renderLastShuffle(config);
+                }).finally(function () {
+                    Dashboard.hideLoadingMsg();
+                });
+            });
+
+            page.querySelector('#shuffleNow').addEventListener('click', function () {
+                Dashboard.showLoadingMsg();
+                // Save first, so the checkboxes as shown are the ones used.
+                save().then(function () {
+                    return ApiClient.ajax({ type: 'POST', url: ApiClient.getUrl('RandomLibraryCover/Libraries/Shuffle'), dataType: 'json' });
+                }).then(function (result) {
+                    Dashboard.alert(result.Shuffled + ' libraries got a new cover. Reload the home screen to see them.');
+                }, function () {
+                    Dashboard.alert('Shuffling failed. See the server log for details.');
+                }).finally(function () {
+                    Dashboard.hideLoadingMsg();
+                });
+            });
+
+            page.querySelector('#randomLibraryCoverForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                Dashboard.showLoadingMsg();
+                save().then(Dashboard.processPluginConfigurationUpdateResult);
+            });
+        })();
+    </script>
+</div>
+</body>
+</html>
