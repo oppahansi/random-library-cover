@@ -9,6 +9,70 @@
     "imageUrl": "https://raw.githubusercontent.com/oppahansi/random-library-cover/main/docs/random-cover-menu.png",
     "versions": [
       {
+        "version": "1.0.2.1204",
+        "changelog": "https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.2-jellyfin-12.4",
+        "targetAbi": "12.4.0.0",
+        "sourceUrl": "https://github.com/oppahansi/random-library-cover/releases/download/v1.0.2-jellyfin-12.4/randomlibrarycover_1.0.2_jellyfin-12.4.zip",
+        "checksum": "b0a34b7b3e381769eb24d9fdd5493c5a",
+        "timestamp": "2026-11-04T14:57:05Z"
+      },
+      {
+        "version": "1.0.2.1203",
+        "changelog": "https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.2-jellyfin-12.3",
+        "targetAbi": "12.3.0.0",
+        "sourceUrl": "https://github.com/oppahansi/random-library-cover/releases/download/v1.0.2-jellyfin-12.3/randomlibrarycover_1.0.2_jellyfin-12.3.zip",
+        "checksum": "6d7b15b33a18c301d7e4930b9eb84cc0",
+        "timestamp": "2026-11-04T14:57:03Z"
+      },
+      {
+        "version": "1.0.2.1202",
+        "changelog": "https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.2-jellyfin-12.2",
+        "targetAbi": "12.2.0.0",
+        "sourceUrl": "https://github.com/oppahansi/random-library-cover/releases/download/v1.0.2-jellyfin-12.2/randomlibrarycover_1.0.2_jellyfin-12.2.zip",
+        "checksum": "a6aeb2e42069a0acc9b849bb87d0b719",
+        "timestamp": "2026-11-04T14:57:00Z"
+      },
+      {
+        "version": "1.0.2.1201",
+        "changelog": "https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.2-jellyfin-12.1",
+        "targetAbi": "12.1.0.0",
+        "sourceUrl": "https://github.com/oppahansi/random-library-cover/releases/download/v1.0.2-jellyfin-12.1/randomlibrarycover_1.0.2_jellyfin-12.1.zip",
+        "checksum": "3f45d255bbb9d6604bdcda00d9663105",
+        "timestamp": "2026-11-04T14:56:58Z"
+      },
+      {
+        "version": "1.0.2.1200",
+        "changelog": "https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.2-jellyfin-12.0",
+        "targetAbi": "12.0.0.0",
+        "sourceUrl": "https://github.com/oppahansi/random-library-cover/releases/download/v1.0.2-jellyfin-12.0/randomlibrarycover_1.0.2_jellyfin-12.0.zip",
+        "checksum": "b459471cdd6805bfd33576b61004b228",
+        "timestamp": "2026-11-04T14:56:56Z"
+      },
+      {
+        "version": "1.0.2.1011",
+        "changelog": "https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.2-jellyfin-10.11",
+        "targetAbi": "10.11.0.0",
+        "sourceUrl": "https://github.com/oppahansi/random-library-cover/releases/download/v1.0.2-jellyfin-10.11/randomlibrarycover_1.0.2_jellyfin-10.11.zip",
+        "checksum": "7e0339c0cd8babe1efd71bc1a91defa8",
+        "timestamp": "2026-11-04T14:56:51Z"
+      },
+      {
+        "version": "1.0.2.1010",
+        "changelog": "https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.2-jellyfin-10.10",
+        "targetAbi": "10.10.0.0",
+        "sourceUrl": "https://github.com/oppahansi/random-library-cover/releases/download/v1.0.2-jellyfin-10.10/randomlibrarycover_1.0.2_jellyfin-10.10.zip",
+        "checksum": "3c0456fa549fdbe6d5723c1900341593",
+        "timestamp": "2026-11-04T14:56:46Z"
+      },
+      {
+        "version": "1.0.2.1009",
+        "changelog": "https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.2-jellyfin-10.9",
+        "targetAbi": "10.9.0.0",
+        "sourceUrl": "https://github.com/oppahansi/random-library-cover/releases/download/v1.0.2-jellyfin-10.9/randomlibrarycover_1.0.2_jellyfin-10.9.zip",
+        "checksum": "103b970d46169e335b40eee3d77ebc0b",
+        "timestamp": "2026-11-04T14:56:44Z"
+      },
+      {
         "version": "1.0.1.1204",
         "changelog": "https://github.com/oppahansi/random-library-cover/releases/tag/v1.0.1-jellyfin-12.4",
         "targetAbi": "12.4.0.0",
